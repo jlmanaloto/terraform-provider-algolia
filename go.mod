@@ -1,4 +1,4 @@
-module github.com/philippe-vandermoere/terraform-provider-algolia
+module github.com/jlmanaloto/terraform-provider-algolia
 
 go 1.16
 

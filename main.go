@@ -6,12 +6,10 @@ import (
 	"log"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
-	"github.com/philippe-vandermoere/terraform-provider-algolia/internal/provider"
+	algolia "github.com/jlmanaloto/terraform-provider-algolia/algolia"
 )
 
 var (
-	// these will be set by the goreleaser configuration
-	// to appropriate values for the compiled binary
 	version = "dev"
 )
 
@@ -21,7 +19,7 @@ func main() {
 	flag.BoolVar(&debugMode, "debug", false, "set to true to run the provider with support for debuggers like delve")
 	flag.Parse()
 
-	opts := &plugin.ServeOpts{ProviderFunc: provider.New(version)}
+	opts := &plugin.ServeOpts{ProviderFunc: algolia.New(version)}
 
 	if debugMode {
 		err := plugin.Debug(context.Background(), "registry.terraform.io/philippe-vandermoere/algolia", opts)

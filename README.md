@@ -1,11 +1,10 @@
 # Terraform Provider Algolia
 
-[![licence](https://img.shields.io/github/license/philippe-vandermoere/terraform-provider-algolia)](./LICENSE)
-![test](https://github.com/philippe-vandermoere/terraform-provider-algolia/actions/workflows/test.yml/badge.svg)
-[![Go Report Card](https://goreportcard.com/badge/github.com/philippe-vandermoere/terraform-provider-algolia)](https://goreportcard.com/report/github.com/philippe-vandermoere/terraform-provider-algolia)
-[![codecov](https://codecov.io/gh/philippe-vandermoere/terraform-provider-algolia/branch/main/graph/badge.svg?token=3O9O1LKS38)](https://codecov.io/gh/philippe-vandermoere/terraform-provider-algolia)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-This repository is a Algolia provider for [Terraform](https://www.terraform.io).
+This repository is a [Terraform](https://www.terraform.io) Provider for Algolia forked from [philippe-vandermoere's](https://github.com/philippe-vandermoere) [terraform-provider-algolia](https://github.com/philippe-vandermoere/terraform-provider-algolia).
+
+The code structure of this Terraform provider for Algolia has been modified to work with Pulumi's [Terraform Bridge Provider Boilerplate](https://github.com/pulumi/pulumi-tf-provider-boilerplate).
 
 See [usage](https://registry.terraform.io/providers/philippe-vandermoere/algolia/latest/docs).
 
@@ -18,12 +17,13 @@ See [usage](https://registry.terraform.io/providers/philippe-vandermoere/algolia
 
 ### Installation
 
-1. Clone the repository
-1. Enter the repository directory
-1. Build the provider using the `make install` command:
+Clone repository.
 
-````bash
-git clone https://github.com/philippe-vandermoere/terraform-provider-algolia
-cd terraform-provider-algolia
-make install
-````
+```bash
+$ git clone https://github.com/jlmanaloto/terraform-provider-algolia
+```
+To compile, change directory to ``terraform-provider-algolia`` and run ``make install``.
+
+```bash
+$ cd terraform-provider-algolia && make install
+```
