@@ -6,7 +6,7 @@ import (
 	"log"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
-	algolia "github.com/jlmanaloto/terraform-provider-algolia/algolia"
+	algolia "github.com/jlmanaloto/terraform-provider-algolia/provider"
 )
 
 var (
