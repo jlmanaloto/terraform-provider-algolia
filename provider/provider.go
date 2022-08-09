@@ -12,37 +12,42 @@ func init() {
 	schema.DescriptionKind = schema.StringMarkdown
 }
 
-func New(version string) func() *schema.Provider {
+func NewProvider(version string) func() *schema.Provider {
 	return func() *schema.Provider {
-		p := &schema.Provider{
-			Schema: map[string]*schema.Schema{
-				"application_id": {
-					Type:        schema.TypeString,
-					Required:    true,
-					Description: "The Algolia application ID",
-					DefaultFunc: schema.EnvDefaultFunc("ALGOLIA_APPLICATION_ID", nil),
-				},
-				"api_key": {
-					Type:        schema.TypeString,
-					Required:    true,
-					Description: "The API key",
-					DefaultFunc: schema.EnvDefaultFunc("ALGOLIA_API_KEY", nil),
-				},
-			},
-
-			ResourcesMap: map[string]*schema.Resource{
-				"algolia_api_key": resourceApiKey(),
-				"algolia_index":   resourceIndex(),
-			},
-
-			DataSourcesMap: map[string]*schema.Resource{
-				"algolia_index": dataSourceIndex(),
-			},
-		}
-		p.ConfigureContextFunc = configure(version, p)
-
+		p := New(version)
 		return p
 	}
+}
+
+func New(version string) *schema.Provider {
+	p := &schema.Provider{
+		Schema: map[string]*schema.Schema{
+			"application_id": {
+				Type:        schema.TypeString,
+				Required:    true,
+				Description: "The Algolia application ID",
+				DefaultFunc: schema.EnvDefaultFunc("ALGOLIA_APPLICATION_ID", nil),
+			},
+			"api_key": {
+				Type:        schema.TypeString,
+				Required:    true,
+				Description: "The API key",
+				DefaultFunc: schema.EnvDefaultFunc("ALGOLIA_API_KEY", nil),
+			},
+		},
+
+		ResourcesMap: map[string]*schema.Resource{
+			"algolia_api_key": resourceApiKey(),
+			"algolia_index":   resourceIndex(),
+		},
+
+		DataSourcesMap: map[string]*schema.Resource{
+			"algolia_index": dataSourceIndex(),
+		},
+	}
+	p.ConfigureContextFunc = configure(version, p)
+
+	return p
 }
 
 type apiClient struct {
